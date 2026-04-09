@@ -145,15 +145,15 @@ def review_applications(admin):
 
 def admin_menu(admin):
     while True:
-        print("\n" + "="*45)
+        print("\n" + "-"*45)
         print("       WELCOME TO HT HIRED, " + admin.first_name.upper())
-        print("="*45)
+        print("-"*45)
         print("  [1] View My Job Postings")
         print("  [2] Post a New Job")
         print("  [3] View Applicants")
         print("  [4] Accept / Reject Applications")
         print("  [5] Log Out")
-        print("="*45)
+        print("-"*45)
 
         choice = input("  Enter your choice: ").strip()
 
