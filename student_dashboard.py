@@ -31,20 +31,19 @@ def apply_to_job(student):
         print("  No open jobs at this time. Check back later!")
         return
 
-    for job in jobs:
-        job.display_info()
-        print("  " + "-"*40)
+    for i, job in enumerate(jobs, start=1):
+        print(f"\n  [{i}] {job.job_title} — {job.department} | {job.pay_rate}")
 
-    job_id = input("\n  Enter the Job ID you want to apply to: ").strip()
+    print("-"*45)
+    choice = input("  Which job would you like to apply to? ").strip()
 
-    # check if the job_id they entered actually exists
-    valid_ids = [str(job.job_id) for job in jobs]
-    if job_id not in valid_ids:
-        print("\n  Invalid Job ID. Please try again.")
+    if not choice.isdigit() or int(choice) < 1 or int(choice) > len(jobs):
+        print("\n  Invalid choice. Please try again.")
         return
 
-    submit_application(int(job_id), student.htstudent_id)
-    print("\n  Application submitted successfully! Good luck! 🐏")
+    selected_job = jobs[int(choice) - 1]
+    submit_application(selected_job.job_id, student.htstudent_id)
+    print(f"\n  Application sent for {selected_job.job_title}! Good luck! 🐏")
 
 def view_my_applications(student):
     print("\n" + "-"*45)
@@ -72,12 +71,12 @@ def student_menu(student):
     while True:
         print("\n" + "-"*45)
         print("       WELCOME TO HT HIRED, " + student.first_name.upper())
-        print("="*45)
+        print("-"*45)
         print("  [1] Browse Open Jobs")
         print("  [2] Apply to a Job")
         print("  [3] View My Applications")
         print("  [4] Log Out")
-        print("="*45)
+        print("-"*45)
 
         choice = input("  Enter your choice: ").strip()
 

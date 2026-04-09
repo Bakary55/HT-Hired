@@ -9,9 +9,9 @@ from database import (get_student_by_email, get_admin_by_email,
 # ---- SIGN UP ----
 
 def sign_up():
-    print("\n" + "="*45)
+    print("\n" + "-"*45)
     print("              CREATE AN ACCOUNT")
-    print("="*45)
+    print("-"*45)
     print("  [1] I am a Student")
     print("  [2] I am an Admin")
     print("="*45)
